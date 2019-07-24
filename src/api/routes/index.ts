@@ -1,0 +1,33 @@
+import { Sms } from './../models/sms.model';
+import express from "express";
+import { Contact } from "../models/contact.model";
+import { listContacts, createContact, getContactById, createSms, deleteContact, listSms, deleteSms, getSmsById } from '../controller';
+
+
+const  router= express.Router();
+
+
+router.get('/status', (req, res) => {
+	res.json({
+		message: 'OK',
+		timestamp: new Date().toISOString(),
+		IP: req.ip,
+		URL: req.originalUrl,
+	});
+});
+
+
+
+router.get("/contacts", listContacts )
+router.post("/contacts", createContact )
+router.get("/contacts/:id", getContactById)
+router.delete("/contacts/:id", deleteContact)
+
+router.get('/sms', listSms)
+router.post('/sms', createSms)
+router.get('/sms/:id', getSmsById)
+router.delete('/sms/:id', deleteSms)
+
+
+
+export default router
