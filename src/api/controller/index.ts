@@ -23,7 +23,7 @@ export const getContactById = async (req: express.Request, res: express.Response
     const id = req.params.id;
 
     try {
-        const contact = Contact.findByPk(id)
+        const contact = await Contact.findByPk(id)
 
         if (contact) {
             return res.status(200).send({ contact });

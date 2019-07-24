@@ -19,3 +19,5 @@ app.listen(3000, async() => {
     await sequelize.sync({force:false})
     console.log('SMS app listening on port 3000!')
 });
+
+export default app
