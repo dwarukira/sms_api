@@ -11,7 +11,8 @@
     "dev": "ts-node src/server.ts",
     "watch": "nodemon -e ts -w ./src -x yarn dev",
     "watch-ts": "tsc -w",
-    "test": "jest"
+    "test": "NODE_ENV=test jest --coverage --no-cache  --detectOpenHandles --runInBand --forceExit",
+    "db:migrate": "node_modules/.bin/sequelize db:migrate"
   },
   "devDependencies": {
     "@types/supertest": "^2.0.8",

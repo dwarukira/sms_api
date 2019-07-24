@@ -1,7 +1,5 @@
-import { Sms } from './../models/sms.model';
-import express from "express";
-import { Contact } from "../models/contact.model";
-import { listContacts, createContact, getContactById, createSms, deleteContact, listSms, deleteSms, getSmsById } from '../controller';
+import express from "express"
+import { listContacts, createContact, getContactById, createSms, deleteContact, listSms, deleteSms, getSmsById } from '../controller'
 
 
 const  router= express.Router();

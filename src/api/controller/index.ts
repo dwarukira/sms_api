@@ -1,7 +1,7 @@
 import express from 'express';
-import { Contact } from './../models/contact.model';
+import { Contact } from '../../models/contact.model';
 import { getContactByPhone, validateContacts, validatePhoneNumber, validateSms } from '../utils';
-import { Sms } from '../models/sms.model';
+import { Sms } from '../../models/sms.model';
 
 export const listContacts = async (req: express.Request, res: express.Response) => {
     try {

@@ -1,11 +1,11 @@
-import { Contact } from './../models/contact.model'
+import { Contact }  from '../../models/contact.model'
 import request from 'supertest'
 import app from '../../server';
 
 
 
 
-describe('Test the root path', async() => {
+describe('Test the root path', () => {
     beforeAll(async() => {
       const contacts = [
         {name: 'test', phone: '0700777888'},
@@ -13,9 +13,17 @@ describe('Test the root path', async() => {
       ]
       await Contact.bulkCreate(contacts);
     });
+
+    afterAll(async () => {
+      await new Promise(resolve => setTimeout(() => resolve(), 500)); // avoid jest open handle error
+    });
+
+
     test('It should response the GET method', async() => {
       const response = await request(app).get('/api/contacts');
       expect(response.status).toBe(200);
+     
+
     });
     test('Can create contacts', async() => {
       const payload = { name: 'some name', phone_number: '0701777888' }

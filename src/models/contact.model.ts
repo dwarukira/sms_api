@@ -34,6 +34,3 @@ export class Contact extends Model<Contact> {
 
 
 }
-
-
-export default Contact
