@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@types/supertest": "^2.0.8",
-    "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
@@ -33,6 +32,7 @@
     "express": "^4.17.1",
     "jest": "^24.8.0",
     "pg": "^7.11.0",
+    "nodemon": "^1.19.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.10.2",
     "sequelize-typescript": "^1.0.0-beta.3",
