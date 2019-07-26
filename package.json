@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/supertest": "^2.0.8",
-    "tslint": "^5.18.0",
+    "tslint": "^5.18.0"
   },
   "dependencies": {
     "@types/bluebird": "^3.5.27",
