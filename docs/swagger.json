@@ -8,7 +8,7 @@
         "email": "dwarukira@gmail.com"
       }
     },
-    "host": "sms-manager-app.herokuapp.com",
+    "host": "smsms.herokuapp.com",
     "schemes": [
       "https"
     ],
