@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-      "description": "This is a simple SMS API built with Node js, Express Js and Postgres.",
+      "description": "This is a simple SMS API built with Node js,Typescript, Express Js and Postgres.",
       "version": "1.0.0",
       "title": "Sms management API",
       "contact": {
