@@ -16,7 +16,7 @@ app.use('/api', routes);
 app.use("*", (req, res) => res.sendFile(path.join(__dirname+'/../docs/index.html')));
 
 
-app.listen(3000, async() => {
+app.listen(process.env.PORT, async() => {
     // await sequelize.sync({force: true});
     await sequelize.sync({force:false})
     console.log('SMS app listening on port 3000!')
