@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from "body-parser";
-
+import path from 'path';
 
 import routes from "./api/routes";
 import { sequelize } from './sequelize';
@@ -9,10 +9,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.send('Hello World!'));
-
 
 app.use('/api', routes);
+
+;
+app.use("*", (req, res) => res.sendFile(path.join(__dirname+'/../docs/index.html')));
+
 
 app.listen(3000, async() => {
     // await sequelize.sync({force: true});

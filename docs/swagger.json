@@ -1,0 +1,281 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is a simple SMS API built with Node js, Express Js and Postgres.",
+      "version": "1.0.0",
+      "title": "Sms management API",
+      "contact": {
+        "email": "dwarukira@gmail.com"
+      }
+    },
+    "host": "sms-manager-app.herokuapp.com",
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/api/contacts": {
+        "post": {
+          "tags": [
+            "contacts"
+          ],
+          "summary": "create a new contact",
+          "description": "",
+          "operationId": "createcontact",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "creates a new contact",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Bad request"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "contacts"
+          ],
+          "summary": "retrieves all contacts in the database",
+          "description": "get all the contacts in the system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "/definitions/Contact"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/contacts/{contactId}": {
+        "get": {
+          "tags": [
+            "contacts"
+          ],
+          "summary": "Find contact by ID",
+          "description": "Returns a single contact",
+          "operationId": "getContactById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "contactId",
+              "in": "path",
+              "description": "ID of contact to return",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              }
+            },
+            "404": {
+              "description": "Contact not found"
+            },
+            "422": {
+              "description": "Invalid ID supplied"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "contacts"
+          ],
+          "summary": "delete contact",
+          "description": "delete an sms with given id",
+          "operationId": "deleteContact",
+          "parameters": [
+            {
+              "name": "contactId",
+              "in": "path",
+              "description": "ID of contact to delete",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "contact not found"
+            },
+            "422": {
+              "description": "Invalid ID supplied"
+            }
+          }
+        }
+      },
+      "/api/sms": {
+        "post": {
+          "tags": [
+            "sms"
+          ],
+          "summary": "Create a new message",
+          "description": "",
+          "operationId": "createSms",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Creating/sending a new message",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Sms"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Bad request"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "sms"
+          ],
+          "summary": "List all sms",
+          "description": "retrieves all the sms in the database",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Sms"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/sms/{smsId}": {
+        "get": {
+          "tags": [
+            "sms"
+          ],
+          "summary": "Get sms by ID",
+          "description": "Returns a single sms and update its status as received.",
+          "operationId": "getSmsById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "smsId",
+              "in": "path",
+              "description": "Returns an sms based on the given ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Sms"
+              }
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Sms not found"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "sms"
+          ],
+          "summary": "delete sms",
+          "description": "delete an sms with given id",
+          "operationId": "deleteSms",
+          "parameters": [
+            {
+              "name": "smsId",
+              "in": "path",
+              "description": "ID of sms to delete",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Sms not found"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "the name of phone owner"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "phone number"
+          }
+        }
+      },
+      "Sms": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "message to be sent"
+          },
+          "from": {
+            "type": "string",
+            "description": "the phone number of message sender"
+          },
+          "to": {
+            "type": "string",
+            "description": "the phone number of message recipient"
+          }
+        }
+      }
+    }
+  }

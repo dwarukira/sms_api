@@ -1,20 +1,11 @@
+import { DB_URI } from './../config/config';
 import { Sequelize } from 'sequelize-typescript';
 import { Op } from 'sequelize';
 
-// export const sequelize = new Sequelize({
-//   dialect: 'sqlite',
-//   operatorsAliases: Op,
-//   database: 'movies',
-//   storage: ':memory:',
-//   models: [__dirname + '/models']
-// })
+const env = process.env.NODE_ENV || 'development';
 
-console.log(__dirname + "/models")
-export const sequelize =  new Sequelize({
-  dialect: 'sqlite',
+export const sequelize =  new Sequelize(DB_URI,{
   operatorsAliases: Op,
-  database: 'sms',
-  storage: ':memory:',
   modelPaths: [__dirname + "/models"],
   modelMatch: (filename, member) => {
     return filename.substring(0, filename.indexOf('.model')) === member.toLowerCase();

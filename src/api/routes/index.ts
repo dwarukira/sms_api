@@ -4,6 +4,12 @@ import { listContacts, createContact, getContactById, createSms, deleteContact, 
 
 const  router= express.Router();
 
+import swaggerUi  from 'swagger-ui-express';
+import swaggerDocument from "../../../docs/swagger.json"
+
+
+router.use('/', swaggerUi.serve);
+router.get('/', swaggerUi.setup(swaggerDocument));
 
 router.get('/status', (req, res) => {
 	res.json({

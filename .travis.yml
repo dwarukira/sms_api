@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "stable"
+services:
+  - postgresql
+install:
+  - yarn
+before_script:
+  - psql -c 'create database ;' -U postgres
+script:
+  - yarn test:coveralls
+notifications:
+  email: false

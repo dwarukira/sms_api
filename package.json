@@ -23,17 +23,23 @@
   },
   "dependencies": {
     "@types/bluebird": "^3.5.27",
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^4.17.0",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.8",
+    "@types/swagger-ui-express": "^3.0.1",
     "@types/validator": "^10.11.1",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "jest": "^24.8.0",
+    "pg": "^7.11.0",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.10.2",
+    "sequelize-cli-typescript": "git+ssh://git@github.com:wildcookie007/sequelize-cli-typescript.git#master",
     "sequelize-typescript": "^1.0.0-beta.3",
     "sqlite3": "^4.0.9",
     "supertest": "^4.0.2",
+    "swagger-ui-express": "^4.0.7",
     "ts-jest": "^24.0.2"
   },
   "jest": {
@@ -42,9 +48,8 @@
       "tsx",
       "js"
     ],
-
     "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(js|ts|tsx)$": "ts-jest"
     },
     "globals": {
       "ts-jest": {
