@@ -16,9 +16,7 @@
   },
   "devDependencies": {
     "@types/supertest": "^2.0.8",
-    "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
   },
   "dependencies": {
     "@types/bluebird": "^3.5.27",
@@ -39,7 +37,10 @@
     "sqlite3": "^4.0.9",
     "supertest": "^4.0.2",
     "swagger-ui-express": "^4.0.7",
-    "ts-jest": "^24.0.2"
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+
   },
   "jest": {
     "moduleFileExtensions": [
